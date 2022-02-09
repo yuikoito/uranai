@@ -1,0 +1,22 @@
+.PrivatePickersToolbar-root {
+  display: none !important;
+}
+
+.PrivatePickersFadeTransitionGroup-root:first-child {
+  order: 2 !important;
+}
+
+.PrivatePickersFadeTransitionGroup-root:last-child {
+  order: 1 !important;
+}
+.MuiCalendarPicker-root button {
+  order: 3 !important;
+}
+
+.Mui-selected {
+  background-color: #ffc107 !important;
+}
+
+.MuiButton-text {
+  color: #ffc107 !important;
+}
