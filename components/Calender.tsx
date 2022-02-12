@@ -6,7 +6,7 @@ import TextField from '@mui/material/TextField';
 import jaLocale from 'date-fns/locale/ja';
 
 type Props = {
-  date: Date | undefined;
+  date: Date | null;
   setDate: React.Dispatch<React.SetStateAction<Date | undefined>>;
 };
 const Calender: React.FC<Props> = ({ date, setDate }) => {
@@ -21,7 +21,7 @@ const Calender: React.FC<Props> = ({ date, setDate }) => {
           inputFormat="yyyy年M月d日"
           openTo="year"
           views={['year', 'month', 'day']}
-          label="Year, month and date"
+          label="生年月日を選択"
           disableCloseOnSelect={false}
           okText="閉じる"
           cancelText="キャンセル"
