@@ -13,6 +13,7 @@
     "@date-io/date-fns": "1.x",
     "@emotion/react": "^11.7.1",
     "@emotion/styled": "^11.6.0",
+    "@fontsource/m-plus-rounded-1c": "^4.5.1",
     "@mui/lab": "^5.0.0-alpha.68",
     "@mui/material": "^5.4.1",
     "axios": "^0.25.0",
