@@ -24,6 +24,7 @@ const DesignedBox = styled(Paper)(({ theme }) => ({
 const DesignedContainer = styled(Box)(({ theme }) => ({
   background: '#FFA170',
   width: '100vw',
+  height: '50vh',
   padding: '20px',
   display: 'flex',
   flexDirection: 'column',
@@ -31,6 +32,7 @@ const DesignedContainer = styled(Box)(({ theme }) => ({
   justifyContent: 'center',
   [theme.breakpoints.up('sm')]: {
     padding: '32px 0',
+    height: '100vh',
   },
 }));
 
@@ -39,7 +41,6 @@ const Main = () => {
   const [bloodType, setBloodType] = useState<BloodType>();
   const [myrank, setMyrank] = useState<Uranai>();
   const [loading, setLoading] = useState<boolean>(false);
-  const [page, setPage] = useState<number>(0);
 
   const getMyrank = async () => {
     if (!date || !bloodType) return;
@@ -63,37 +64,41 @@ const Main = () => {
   };
 
   return (
-    <DesignedContainer>
-      <Typography variant="h6" component="h1" sx={{ color: 'white' }}>
-        うらないん
-      </Typography>
-      <Typography variant="body1" component="div" sx={{ color: 'white' }}>
-        干支・生年月日・血液型を使った超細かすぎる占いです。
-      </Typography>
-      <Typography variant="body1" component="div" sx={{ color: 'white' }}>
-        占い結果は一日に一回更新され、診断結果は驚きの17,532通り！
-      </Typography>
-      <Typography variant="body1" component="div" sx={{ color: 'white' }}>
-        生年月日と血液型を入力するだけで簡単に診断できます。
-      </Typography>
-      <Typography variant="body1" component="div" sx={{ color: 'white' }}>
-        生年月日と血液型を選択して占う
-      </Typography>
-      <DesignedBox>
-        <Calender
-          date={date}
-          setDate={(date) => date && setDate(date as Date)}
-        />
-        <BloodTypeSelecter bloodType={bloodType} setBloodType={setBloodType} />
-        <Button
-          onClick={getMyrank}
-          color="primary"
-          variant="contained"
-          sx={{ width: '100%' }}
-        >
-          診断する
-        </Button>
-      </DesignedBox>
+    <>
+      <DesignedContainer>
+        <Typography variant="h4" component="h1" sx={{ color: 'white' }}>
+          うらないん
+        </Typography>
+        <Box my={2}>
+          <Typography variant="body1" component="div" sx={{ color: 'white' }}>
+            干支・生年月日・血液型を使った超細かすぎる占いです。
+          </Typography>
+          <Typography variant="body1" component="div" sx={{ color: 'white' }}>
+            占い結果は一日に一回更新され、診断結果は驚きの17,532通り！
+          </Typography>
+          <Typography variant="body1" component="div" sx={{ color: 'white' }}>
+            生年月日と血液型を入力するだけで簡単に診断できます。
+          </Typography>
+        </Box>
+        <DesignedBox>
+          <Calender
+            date={date}
+            setDate={(date) => date && setDate(date as Date)}
+          />
+          <BloodTypeSelecter
+            bloodType={bloodType}
+            setBloodType={setBloodType}
+          />
+          <Button
+            onClick={getMyrank}
+            color="primary"
+            variant="contained"
+            sx={{ width: '100%' }}
+          >
+            診断する
+          </Button>
+        </DesignedBox>
+      </DesignedContainer>
       {myrank && (
         <DesignedBox>
           <Typography variant="body1" component="div">
@@ -103,10 +108,12 @@ const Main = () => {
           </Typography>
         </DesignedBox>
       )}
-      <Box>
+      <Box
+        sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+      >
         <UranaiList />
       </Box>
-    </DesignedContainer>
+    </>
   );
 };
 
