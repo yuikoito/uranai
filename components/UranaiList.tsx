@@ -24,7 +24,7 @@ const UranaiList: React.FC<{}> = ({}) => {
           setPage((page) => page + 1);
           setLoading(false);
           resolve(true);
-        }, 1500)
+        }, 1000)
       );
     };
     setLoading(true);

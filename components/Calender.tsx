@@ -18,10 +18,10 @@ const Calender: React.FC<Props> = ({ date, setDate }) => {
     >
       <Stack spacing={3}>
         <DatePicker
-          inputFormat="yyyy年M月d日"
+          inputFormat="yyyy/M/d"
           openTo="year"
           views={['year', 'month', 'day']}
-          label="生年月日を選択"
+          label="生年月日を入力"
           disableCloseOnSelect={false}
           okText="閉じる"
           cancelText="キャンセル"

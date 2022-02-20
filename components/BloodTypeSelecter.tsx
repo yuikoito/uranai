@@ -10,13 +10,15 @@ type Props = {
 const BloodTypeSelecter = ({ bloodType, setBloodType }: Props) => {
   const bloodTypeList: BloodType[] = ['A', 'B', 'AB', 'O'];
   return (
-    <Stack spacing={2} direction="row">
+    <Stack spacing={1} direction="row" my={1} sx={{ width: '100%' }}>
       {bloodTypeList.map((type, index) => {
         return (
           <Button
             key={index}
             onClick={() => setBloodType(type)}
+            color="primary"
             variant={bloodType === type ? 'contained' : 'outlined'}
+            sx={{ width: '100%' }}
           >
             {type}
           </Button>

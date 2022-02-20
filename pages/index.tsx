@@ -1,6 +1,5 @@
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
-import Container from '@mui/material/Container';
 import Paper from '@mui/material/Paper';
 import { styled } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
@@ -18,25 +17,20 @@ const DesignedBox = styled(Paper)(({ theme }) => ({
   background: 'white',
   padding: '16px',
   [theme.breakpoints.up('sm')]: {
-    // height: '80vh',
-    // minHeight: 500,
-    // maxHeight: 1300,
-    // レスポンシブ
+    width: '350px',
   },
 }));
 
-const DesignedContainer = styled(Container)(({ theme }) => ({
-  background: '#ffe168',
-  padding: '32px 0',
+const DesignedContainer = styled(Box)(({ theme }) => ({
+  background: '#FFA170',
+  width: '100vw',
+  padding: '20px',
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
   justifyContent: 'center',
   [theme.breakpoints.up('sm')]: {
-    // height: '80vh',
-    // minHeight: 500,
-    // maxHeight: 1300,
-    // レスポンシブ
+    padding: '32px 0',
   },
 }));
 
@@ -70,21 +64,19 @@ const Main = () => {
 
   return (
     <DesignedContainer>
-      <Typography variant="h6" component="h1">
+      <Typography variant="h6" component="h1" sx={{ color: 'white' }}>
         うらないん
       </Typography>
-      <DesignedBox>
-        <Typography variant="body1" component="div">
-          干支・生年月日・血液型を使った超細かすぎる占いです。
-        </Typography>
-        <Typography variant="body1" component="div">
-          占い結果は一日に一回更新され、診断結果は驚きの17,532通り！
-        </Typography>
-        <Typography variant="body1" component="div">
-          生年月日と血液型を入力するだけで簡単に診断できます。
-        </Typography>
-      </DesignedBox>
-      <Typography variant="body1" component="div">
+      <Typography variant="body1" component="div" sx={{ color: 'white' }}>
+        干支・生年月日・血液型を使った超細かすぎる占いです。
+      </Typography>
+      <Typography variant="body1" component="div" sx={{ color: 'white' }}>
+        占い結果は一日に一回更新され、診断結果は驚きの17,532通り！
+      </Typography>
+      <Typography variant="body1" component="div" sx={{ color: 'white' }}>
+        生年月日と血液型を入力するだけで簡単に診断できます。
+      </Typography>
+      <Typography variant="body1" component="div" sx={{ color: 'white' }}>
         生年月日と血液型を選択して占う
       </Typography>
       <DesignedBox>
@@ -93,7 +85,14 @@ const Main = () => {
           setDate={(date) => date && setDate(date as Date)}
         />
         <BloodTypeSelecter bloodType={bloodType} setBloodType={setBloodType} />
-        <Button onClick={getMyrank}>診断する</Button>
+        <Button
+          onClick={getMyrank}
+          color="primary"
+          variant="contained"
+          sx={{ width: '100%' }}
+        >
+          診断する
+        </Button>
       </DesignedBox>
       {myrank && (
         <DesignedBox>
